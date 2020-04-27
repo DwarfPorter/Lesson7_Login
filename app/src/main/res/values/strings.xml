@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="password">Пароль</string>
+    <string name="userName">Имя</string>
+</resources>
