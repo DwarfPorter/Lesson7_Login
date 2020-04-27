@@ -8,9 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="MyTinyText">
-        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/design_default_color_primary</item>
-        <item name="android:textSize">5sp</item>
     </style>
     <style name="MyBigText">
         <item name="android:textColor">@color/design_default_color_primary_dark</item>
