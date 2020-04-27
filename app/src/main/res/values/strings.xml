@@ -2,4 +2,6 @@
     <string name="app_name">Login</string>
     <string name="password">Пароль</string>
     <string name="userName">Имя</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="settings">Настройки</string>
 </resources>

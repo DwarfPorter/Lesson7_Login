@@ -2,14 +2,21 @@ package ru.geekbrains.login;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+
+    private static final int SETTING_CODE = 88;
 
     private Pattern checkLogin = Pattern.compile("^[A-Z][a-z]{2,}$");
     private Pattern checkPassword = Pattern.compile("^(?=^.{6,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$");
@@ -27,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.inputPassword);
         loginLayout = findViewById(R.id.userName);
         passwordLayout = findViewById(R.id.password);
+
+        Button setting = findViewById(R.id.button3);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivityForResult(intent, SETTING_CODE);
+            }
+        });
 
         login.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -58,5 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void showError(TextInputLayout textInputLayout, String message) {
         textInputLayout.setError(message);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SETTING_CODE){
+            recreate();
+        }
     }
 }
